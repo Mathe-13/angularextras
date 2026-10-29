@@ -1,21 +1,23 @@
 <h1>Subir ficheros Angular</h1>
-
-<form (ngSubmit)="subirFichero()">
-
+<h3>Selecciona una imagen para subir a la API</h3>
+<form #formfichero="ngForm" (ngSubmit)="subirFichero()">
   <label>Seleccionar imagen:</label>
-
   <input
     type="file"
     accept="image/*"
+    #cajafichero
+    [disabled]="subiendo"
     (change)="seleccionarFichero($event)"
   />
-
-  <br /><br />
-
-  <button type="submit">
+  <br/>
+  <button type="submit" [disabled]="subiendo || !fileContent">
     Subir fichero
   </button>
-
 </form>
+@if (fichero) {
+  <h3>Nombre: {{ fichero.name }}</h3>
+}
 
-<h3>{{ mensaje }}</h3>
+<h3 [style.color]="mensaje.startsWith('Error') ? 'red' : 'blue'">
+  {{ mensaje }}
+</h3>
