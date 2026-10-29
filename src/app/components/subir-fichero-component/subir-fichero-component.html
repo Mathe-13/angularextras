@@ -1,0 +1,21 @@
+<h1>Subir ficheros Angular</h1>
+
+<form (ngSubmit)="subirFichero()">
+
+  <label>Seleccionar imagen:</label>
+
+  <input
+    type="file"
+    accept="image/*"
+    (change)="seleccionarFichero($event)"
+  />
+
+  <br /><br />
+
+  <button type="submit">
+    Subir fichero
+  </button>
+
+</form>
+
+<h3>{{ mensaje }}</h3>
