@@ -92,7 +92,7 @@ export class SubirFicheroComponent {
       next: (response) => {
         console.log('Respuesta de la API:', response);
         console.log('Nombre enviado:', archivo.fileName);
-        this.mensaje = 'Respusta del servidor: ' + response;
+        this.mensaje = 'Respuesta del servidor: ' + response;
         this.subiendo = false;
         this._cdr.detectChanges();
       },
